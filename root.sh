@@ -37,9 +37,9 @@ sudo chattr -i /etc/passwd /etc/shadow >/dev/null 2>&1
 sudo chattr -a /etc/passwd /etc/shadow >/dev/null 2>&1
 sudo lsattr /etc/passwd /etc/shadow >/dev/null 2>&1
 
-read -p "输入即将设置的SSH端口（如未输入，默认22）：" sshport
+read -p "请设置SSH端口（如未输入，默认22）：" sshport
 [ -z $sshport ] && red "端口未设置，将使用默认22端口" && sshport=22
-read -p "输入即将设置的root密码：" password
+read -p "请输入root密码：" password
 [ -z $password ] && red "端口未设置，将使用随机生成的root密码" && password=$(cat /proc/sys/kernel/random/uuid)
 echo root:$password | sudo chpasswd root
 
